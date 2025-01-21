@@ -680,8 +680,38 @@ blockquote {
 .checkbox-off {
 	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
 }
-	
-</style></head><body><article id="1527b41f-7e2d-801c-b939-fc3eec3cac9c" class="page sans"><header><h1 class="page-title">css quries</h1><p class="page-description"></p><table class="properties"><tbody></tbody></table></header><div class="page-body"><h3 id="1527b41f-7e2d-800d-a4aa-fe84fbf6dca8" class=""><strong>Differences at a Glance</strong></h3><table id="1527b41f-7e2d-80c2-b1ab-e540d950d434" class="simple-table"><tbody><tr id="1527b41f-7e2d-8066-8912-d93699940e4a"><td id="SlNE" class="">Feature</td><td id="ZtE^" class=""><code>position: relative</code></td><td id="&gt;Dhl" class=""><code>position: absolute</code></td></tr><tr id="1527b41f-7e2d-8043-88ce-cdee83dbb4c8"><td id="SlNE" class=""><strong>Positioning Basis</strong></td><td id="ZtE^" class="">Original position in the flow</td><td id="&gt;Dhl" class="">Nearest positioned ancestor or root element</td></tr><tr id="1527b41f-7e2d-80aa-a3ac-ce010e7d4726"><td id="SlNE" class=""><strong>Flow Behavior</strong></td><td id="ZtE^" class="">Stays in the flow</td><td id="&gt;Dhl" class="">Removed from the flow</td></tr><tr id="1527b41f-7e2d-8011-b88a-dde4c72d8e01"><td id="SlNE" class=""><strong>Space Reservation</strong></td><td id="ZtE^" class="">Space is reserved</td><td id="&gt;Dhl" class="">No space is reserved (other elements adjust)</td></tr><tr id="1527b41f-7e2d-80d3-8f68-eaac7b7f1e94"><td id="SlNE" class=""><strong>Use Case</strong></td><td id="ZtE^" class="">Minor adjustments or relative positioning of child</td><td id="&gt;Dhl" class="">Precise positioning or creating layered layouts</td></tr></tbody></table><p id="1527b41f-7e2d-802f-a479-e1c57adcf4c8" class="">
+.nav-links {
+	display: flex;
+    position: fixed;
+    top: 20px;
+    right: 37%;
+    z-index: 1000;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 20px 20px;
+    border-radius: 25px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.nav-links a {
+    color: #2c3e50;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 3CH;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #3498db;
+}
+</style></head><body>
+	<nav class="nav-links">
+        <a href="index.html#home">Home</a>
+        <a href="index.html#about">About</a>
+        <a href="index.html#projects">Projects</a>
+        <a href="index.html#blogs">Blogs</a>
+    </nav>
+	<article id="1527b41f-7e2d-801c-b939-fc3eec3cac9c" class="page sans"><header><h1 class="page-title">css quries</h1><p class="page-description"></p><table class="properties"><tbody></tbody></table></header><div class="page-body"><h3 id="1527b41f-7e2d-800d-a4aa-fe84fbf6dca8" class=""><strong>Differences at a Glance</strong></h3><table id="1527b41f-7e2d-80c2-b1ab-e540d950d434" class="simple-table"><tbody><tr id="1527b41f-7e2d-8066-8912-d93699940e4a"><td id="SlNE" class="">Feature</td><td id="ZtE^" class=""><code>position: relative</code></td><td id="&gt;Dhl" class=""><code>position: absolute</code></td></tr><tr id="1527b41f-7e2d-8043-88ce-cdee83dbb4c8"><td id="SlNE" class=""><strong>Positioning Basis</strong></td><td id="ZtE^" class="">Original position in the flow</td><td id="&gt;Dhl" class="">Nearest positioned ancestor or root element</td></tr><tr id="1527b41f-7e2d-80aa-a3ac-ce010e7d4726"><td id="SlNE" class=""><strong>Flow Behavior</strong></td><td id="ZtE^" class="">Stays in the flow</td><td id="&gt;Dhl" class="">Removed from the flow</td></tr><tr id="1527b41f-7e2d-8011-b88a-dde4c72d8e01"><td id="SlNE" class=""><strong>Space Reservation</strong></td><td id="ZtE^" class="">Space is reserved</td><td id="&gt;Dhl" class="">No space is reserved (other elements adjust)</td></tr><tr id="1527b41f-7e2d-80d3-8f68-eaac7b7f1e94"><td id="SlNE" class=""><strong>Use Case</strong></td><td id="ZtE^" class="">Minor adjustments or relative positioning of child</td><td id="&gt;Dhl" class="">Precise positioning or creating layered layouts</td></tr></tbody></table><p id="1527b41f-7e2d-802f-a479-e1c57adcf4c8" class="">
 </p><h1 id="1527b41f-7e2d-8037-a999-e38f2a293ca9" class="">Flex</h1><p id="1527b41f-7e2d-800a-a628-c9a678911cab" class="">The CSS <code>display: flex;</code> property is used to create a <strong>flex container</strong>, which allows you to layout its child elements (flex items) in a flexible and responsive way. Flexbox is particularly useful for arranging items either horizontally or vertically, controlling spacing, alignment, and the size of elements dynamically.</p><hr id="1527b41f-7e2d-80b0-9e30-c834f4e5e2c6"/><h3 id="1527b41f-7e2d-80e2-aa0a-e57bbbee3d9b" class=""><strong>Key Features of </strong><code><strong>display: flex;</strong></code></h3><ol type="1" id="1527b41f-7e2d-8088-9586-f8b73903c091" class="numbered-list" start="1"><li><strong>Defines a Flex Container:</strong><ul id="1527b41f-7e2d-8030-bf68-e496dc897e6f" class="bulleted-list"><li style="list-style-type:disc">When you apply <code>display: flex;</code> to an element, its children become <strong>flex items</strong> and can be controlled with Flexbox properties.</li></ul></li></ol><ol type="1" id="1527b41f-7e2d-8011-9851-e56fc7dced9f" class="numbered-list" start="2"><li><strong>Flex Direction:</strong><ul id="1527b41f-7e2d-807d-9352-cbc89966948e" class="bulleted-list"><li style="list-style-type:disc">You can arrange the items in a row (<code>row</code> is the default) or in a column using the <code>flex-direction</code> property.</li></ul><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1527b41f-7e2d-80f1-a3c7-c67d39c08b9d" class="code"><code class="language-CSS" style="white-space:pre-wrap;word-break:break-all">css
 Copy code
 flex-direction: row;    /* Horizontal (default) */
