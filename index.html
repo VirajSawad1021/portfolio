@@ -3,115 +3,182 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Viraj Sawad </title>
+    <title>Viraj Sawad</title>
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+
 </head>
-
 <body>
-    <section class="section landing-section">
+    <!-- Navigation -->
+    <nav class="nav-links">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#blogs">Blogs</a>
+    </nav>
+
+    <!-- Landing Section -->
+    <section id="home" class="section landing-section">
         <div id="particles-js"></div>
-
         <div class="hero-content">
-            <h1 id="viraj-sawad" data-aos="fade-up">Viraj Sawad</h1>
-
-            <div class="social-links" data-aos="fade-up" data-aos-delay="200">
+            <h1 data-aos="fade-up"data-aos-delay="100">Viraj Sawad</h1>
+            <h2 data-aos="fade-up"data-aos-delay="100">Second-year Computerr Engineering Student</h2>
+            <div class="social-links" data-aos="fade-up" data-aos-delay="400">
                 <a href="https://github.com/VirajSawad74" target="_blank">GitHub</a> |
                 <a href="https://www.linkedin.com/in/viraj-sawad-92970a33b/" target="_blank">LinkedIn</a> |
                 <a href="https://www.instagram.com/viraj_sawad/">Instagram</a>
             </div>
-
-            <div class="scroll-indicator" data-aos="fade-up" data-aos-delay="400">
-                Scroll Down
-                <div class="scroll-arrow">↓</div>
-            </div>
         </div>
     </section>
 
-    <section class="section about-section">
-        <div class="about-container" data-aos="fade-up">
-            <h2>About Me</h2>
+    <!-- About Section -->
+        <!-- About Section -->
+<section id="about" class="section about-section">
+    <div class="about-container">
+        <div class="about-content">
+            <h2 class="section-title" data-aos="fade-up">About Me</h2>
+            <p data-aos="fade-up">
+                I'm a second-year Computer Engineering student at Kantipur Engineering College, passionate about AI, ML, and Data Science. 
+                I enjoy exploring new technologies and constantly improving my skills.
+            </p>
+            <ul class="skills-list" data-aos="fade-up">
+                <li>Python, Java, JavaScript</li>
+                <li>Web Development (HTML, CSS, Flask)</li>
+                <li>Machine Learning (Pandas, NumPy, scikit-learn)</li>
+            </ul>
+            <div class="about-buttons" data-aos="fade-up">
+                <a href="#projects" class="btn">View Projects</a>
+                <a href="#contact" class="btn btn-outline">Contact Me</a>
+            </div>
+        </div>
+    </div>
+</section>
 
-            <div id="about-content" class="about-content">
-                <p> Hi, I'm Viraj Sawad.</p>
+            
 
-                <div id="more-text">
-                    <p>
-                     A passionate <strong>Computer Engineering student</strong> at 
-                        <strong>Kantipur Engineering College</strong>, driven by a strong interest in 
-                        <strong>Artificial Intelligence</strong>, <strong>Machine Learning</strong>, and 
-                        <strong>Data Science</strong>.
-                    </p>
-                    <p>I have a diverse skill set in programming, web development, and embedded systems, with proficiency in:</p>
-                    <ul>
-                        <li><strong>Programming Languages:</strong> C++, C, Python, PHP, JavaScript</li>
-                        <li><strong>Data Science Tools:</strong> NumPy, Pandas</li>
-                        <li><strong>Web Technologies:</strong> HTML, CSS, SQL</li>
-                        <li><strong>Embedded Systems:</strong> Arduino IDE</li>
-                    </ul>
-                    <p>
-                        Combining my technical knowledge and creativity, I aim to develop innovative solutions 
-                        to real-world challenges. I’m continuously learning and seeking opportunities to collaborate 
-                        on impactful projects in the tech world.
-                    </p>
-                    <p>
-                        When I'm not coding, you can find me exploring new technologies, contributing to open-source projects, 
-                        or sharing knowledge with the developer community.
-                    </p>
+    <!-- Projects Section -->
+    <section id="projects" class="section projects-section">
+        <h2 class="section-title" data-aos="fade-up">Projects</h2>
+        <div class="projects-grid">
+            <div class="project-card" data-aos="fade-up">
+                <img src="chatroom.png" alt="ChatChamber screenshot" class="project-image">
+                <div class="project-info">
+                    <h3 class="project-title">Chatroom</h3>
+                    <p class="project-description">
+                        Flask web application using Socket.IO enables real-time, bidirectional communication between clients and the server. Unlike traditional request-response models, Socket.IO allows instant updates, making it ideal for applications requiring live interactions such as chat applications, collaborative tools, real-time notifications, and live tracking systems.                    </p>
+                    <div class="project-tags">
+                        <span>Made with:</span>
+                        <span class="tag">python</span>
+                        <span class="tag">Flask</span>
+                    </div>
+                    <a href="#" class="view-code">View Code</a>
                 </div>
             </div>
 
-            <button id="show-more">Show More</button>
-        </div>
+            <div class="project-card" data-aos="fade-up">
+                <img src="memos.png" alt="ChatChamber screenshot" class="project-image">
+                <div class="project-info">
+                    <h3 class="project-title">Minimal Memo App</h3>
+                    <p class="project-description">
+                        The Minimal Memo App is a simple yet visually appealing web application designed to help users jot down their thoughts and ideas effortlessly                    <div class="project-tags">
+                        <span>Made with:</span>
+                        <span class="tag">python</span>
+                        <span class="tag">Flask</span>
+                    </div>
+                    <a href="#" class="view-code">View Code</a>
+                </div>
+            </div>
+            
+           
     </section>
 
-    <section class="section articles-section">
-        <div class="articles-container" data-aos="fade-up">
-            <div class="section-title">
-                <h2>Articles</h2>
-                <span class="article-count">Projects</span>
-            </div>
-
-            <div class="articles-grid">
-                <article class="article-card" data-aos="fade-up">
-                    <h2>Function in Python</h2>
-                    <p class="article-description">
-                        Functions are one of the core building blocks in Python. They allow you to group code into reusable blocks, making your program more modular, organized, and easier to maintain. 
-                    </p>
-                    <a href="Functions 1537b41f7e2d80aebed4d8a8304de9b2.html" class="read-more">Read more</a>
-                </article>
-
-                <article class="article-card" data-aos="fade-up" data-aos-delay="100">
-                    <h2>Introduction to Data structures</h2>
-                    <p class="article-description">
-                        Data structures are fundamental building blocks for organizing, storing, and manipulating data efficiently. Python provides a variety of built-in data structures such as Lists, Tuples, Sets, and Dictionaries
-                    </p>
-                    <a href="Data structure 1517b41f7e2d8064828cf00f8436bcc0.html" class="read-more">Read more</a>
-                </article>
-
-                <article class="article-card" data-aos="fade-up" data-aos-delay="200">
-                    <h2>Object-Oriented Programming (OOP) in Python</h2>
-                    <p class="article-description">
-                        Object-Oriented Programming (OOP) is a programming paradigm that organizes code into reusable blueprints called classes, which represent real-world objects. 
-                    </p>
-                    <a href="Object Oriented programming 1537b41f7e2d803c8503cdbd538da800.html" class="read-more">Read more</a>
-                </article>
-
-                <article class="article-card" data-aos="fade-up" data-aos-delay="300">
-                    <h2>Modules and Libraries in Python</h2>
-                    <p class="article-subtitle">The Ultimate Guide Modules and Libraries in Python</p>
-                    <p class="article-description">
-                        Python modules and libraries are essential tools for making the development process more efficient and effective                    </p>
-                    <a href="Modules and Libraries 1537b41f7e2d80149341d36c64d7c9a2.html" class="read-more">Read more</a>
-                </article>
-            </div>
+    <!-- Blogs Section -->
+    <section id="blogs" class="section blogs-section">
+        <h2 class="section-title" data-aos="fade-up">Latest Blogs</h2>
+        <div class="container">
+            <article class="blog-card" data-aos="fade-up">
+                <h3 class="card-title">Data structures in Python</h3>
+                <p class="card-description">
+                    Data structures are fundamental components that allow us to organize, store, and manipulate data efficiently.                </p>
+                <a href="Data structure 1517b41f7e2d8064828cf00f8436bcc0.html" class="read-more">Read more</a>
+            </article>
+            <article class="blog-card" data-aos="fade-up">
+                <h3 class="card-title">Functions in Python</h3>
+                <p class="card-description">
+                    Functions are one of the core building blocks in Python. They allow you to group code into reusable blocks, making your program more modular, organized, and easier to maintain.
+                </p>
+                <
+                <a href="Functions 1537b41f7e2d80aebed4d8a8304de9b2.html" class="read-more">Read more</a>
+            </article><article class="blog-card" data-aos="fade-up">
+                <h3 class="card-title">Css Queries</h3>
+                <p class="card-description">
+                    CSS Media Queries are a powerful feature that allows web developers to create responsive designs by applying styles based on the device's screen size, resolution, orientation, and other characteristics.                </p>
+                <a href="css quries 1527b41f7e2d801cb939fc3eec3cac9c.html" class="read-more">Read more</a>
+            </article>
         </div>
     </section>
+    
+<!-- Font Awesome for social icons -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/js/all.min.js" crossorigin="anonymous"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="particles-config.js"></script>
     <script src="main.js"></script>
+    <!-- Contact Me Section -->
+<section id="contact" class="section contact-section">
+    <div class="contact-container">
+        <h2 class="section-title" data-aos="fade-up">Contact Me</h2>
+        <p data-aos="fade-up">
+            Feel free to reach out to me for collaboration, inquiries, or just to say hello!
+        </p>
+        <form class="contact-form" data-aos="fade-up">
+            <input type="text" placeholder="Your Name" required>
+            <input type="email" placeholder="Your Email" required>
+            <textarea placeholder="Your Message" rows="5" required></textarea>
+            <button type="submit" class="btn">Send Message</button>
+        </form>
+        <div class="contact-links" data-aos="fade-up">
+            <a href="virajsawad1021@gmail.com" class="btn btn-outline">Send Me an Email</a>
+        </div>
+    </div>
+</section>
+<!-- Footer Section -->
+<!-- Footer Section -->
+<footer class="footer-section">
+    <div class="footer-container">
+        <p class="footer-text">Connect with me:</p>
+        <div class="social-icons">
+            <a href="https://github.com/VirajSawad74" target="_blank" class="social-link github" data-aos="zoom-in">
+                <i class="fa-brands fa-github"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/viraj-sawad-92970a33b/" target="_blank" class="social-link linkedin" data-aos="zoom-in">
+                <i class="fa-brands fa-linkedin-in"></i>
+            </a>
+            <a href="https://www.instagram.com/viraj_sawad/" target="_blank" class="social-link instagram" data-aos="zoom-in">
+                <i class="fa-brands fa-instagram"></i>
+            </a>
+        </div>
+        <p class="footer-credit">© 2025 Viraj Sawad. All rights reserved.</p>
+    </div>
+</footer>
+
+
+<!-- Font Awesome for social icons -->
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+<script>
+    document.querySelector('.show-more').addEventListener('click', function() {
+        const moreContent = document.querySelector('.more-content');
+        if (moreContent.style.display === 'none' || moreContent.style.display === '') {
+            moreContent.style.display = 'block'; // Show the additional content
+            this.textContent = 'Show Less'; // Change button text
+        } else {
+            moreContent.style.display = 'none'; // Hide the additional content
+            this.textContent = 'Show More'; // Change button text back
+        }
+    });
+</script>
 </body>
+
 </html>
-               
