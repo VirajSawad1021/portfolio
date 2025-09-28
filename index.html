@@ -61,11 +61,30 @@
         <h2 class="section-title" data-aos="fade-up">Projects</h2>
         <div class="projects-grid">
             <div class="project-card" data-aos="fade-up">
+                <img src="pdf-rag-query.png" alt="PDF RAG Query screenshot" class="project-image">
+                <div class="project-info">
+                    <h3 class="project-title">PDF-RAG-Query</h3>
+                    <p class="project-description">
+                        An intelligent document analysis system that uses Retrieval-Augmented Generation (RAG) to answer questions about PDF documents. Upload PDFs, ask questions in natural language, and get accurate answers extracted from your documents using advanced AI techniques.
+                    </p>
+                    <div class="project-tags">
+                        <span>Made with:</span>
+                        <span class="tag">Python</span>
+                        <span class="tag">LangChain</span>
+                        <span class="tag">OpenAI</span>
+                        <span class="tag">Streamlit</span>
+                    </div>
+                    <a href="#" class="view-code">View Code</a>
+                </div>
+            </div>
+
+            <div class="project-card" data-aos="fade-up">
                 <img src="chatroom.png" alt="ChatChamber screenshot" class="project-image">
                 <div class="project-info">
                     <h3 class="project-title">Chatroom</h3>
                     <p class="project-description">
-                        Flask web application using Socket.IO enables real-time, bidirectional communication between clients and the server. Unlike traditional request-response models, Socket.IO allows instant updates, making it ideal for applications requiring live interactions such as chat applications, collaborative tools, real-time notifications, and live tracking systems.                    </p>
+                        Flask web application using Socket.IO enables real-time, bidirectional communication between clients and the server. Unlike traditional request-response models, Socket.IO allows instant updates, making it ideal for applications requiring live interactions such as chat applications, collaborative tools, real-time notifications, and live tracking systems.
+                    </p>
                     <div class="project-tags">
                         <span>Made with:</span>
                         <span class="tag">python</span>
@@ -74,108 +93,243 @@
                     <a href="#" class="view-code">View Code</a>
                 </div>
             </div>
-
-            <div class="project-card" data-aos="fade-up">
-                <img src="memos.png" alt="ChatChamber screenshot" class="project-image">
-                <div class="project-info">
-                    <h3 class="project-title">Minimal Memo App</h3>
-                    <p class="project-description">
-                        The Minimal Memo App is a simple yet visually appealing web application designed to help users jot down their thoughts and ideas effortlessly                    <div class="project-tags">
-                        <span>Made with:</span>
-                        <span class="tag">python</span>
-                        <span class="tag">Flask</span>
-                    </div>
-                    <a href="#" class="view-code">View Code</a>
-                </div>
-            </div>
             
-           
+        </div>
     </section>
 
     <!-- Blogs Section -->
     <section id="blogs" class="section blogs-section">
-        <h2 class="section-title" data-aos="fade-up">Latest Blogs</h2>
-        <div class="container">
-            <article class="blog-card" data-aos="fade-up">
-                <h3 class="card-title">Data structures in Python</h3>
-                <p class="card-description">
-                    Data structures are fundamental components that allow us to organize, store, and manipulate data efficiently.                </p>
-                <a href="Data structure 1517b41f7e2d8064828cf00f8436bcc0.html" class="read-more">Read more</a>
-            </article>
-            <article class="blog-card" data-aos="fade-up">
-                <h3 class="card-title">Functions in Python</h3>
-                <p class="card-description">
-                    Functions are one of the core building blocks in Python. They allow you to group code into reusable blocks, making your program more modular, organized, and easier to maintain.
-                </p>
-                <
-                <a href="Functions 1537b41f7e2d80aebed4d8a8304de9b2.html" class="read-more">Read more</a>
-            </article><article class="blog-card" data-aos="fade-up">
-                <h3 class="card-title">Css Queries</h3>
-                <p class="card-description">
-                    CSS Media Queries are a powerful feature that allows web developers to create responsive designs by applying styles based on the device's screen size, resolution, orientation, and other characteristics.                </p>
-                <a href="css quries 1527b41f7e2d801cb939fc3eec3cac9c.html" class="read-more">Read more</a>
-            </article>
+        <div class="blogs-container">
+            <h2 class="section-title" data-aos="fade-up">Latest Blog Posts</h2>
+            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">Explore my insights on artificial intelligence, machine learning, and the future of technology</p>
+            
+            <div class="blogs-grid">
+                <article class="blog-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="blog-header">
+                        <div class="blog-category">Machine Learning</div>
+                        <div class="blog-date">Dec 2024</div>
+                    </div>
+                    <h3 class="blog-title">Fine-Tuning Large Language Models</h3>
+                    <p class="blog-description">
+                        A comprehensive guide to customizing AI models for specific tasks. Learn about LoRA, PEFT methods, hyperparameter optimization, and best practices for fine-tuning with practical code examples.
+                    </p>
+                    <div class="blog-footer">
+                        <a href="Fine-Tuning-LLMs.html" class="read-more-btn">
+                            <span>Read Article</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                        <div class="read-time">15 min read</div>
+                    </div>
+                </article>
+                
+                <article class="blog-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="blog-header">
+                        <div class="blog-category">AI Alignment</div>
+                        <div class="blog-date">Nov 2024</div>
+                    </div>
+                    <h3 class="blog-title">Reinforcement Learning from Human Feedback (RLHF)</h3>
+                    <p class="blog-description">
+                        Building AI systems that learn from human preferences and values. Explore the three-stage RLHF process, reward modeling, PPO training, and Constitutional AI approaches.
+                    </p>
+                    <div class="blog-footer">
+                        <a href="RLHF-Human-Feedback.html" class="read-more-btn">
+                            <span>Read Article</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                        <div class="read-time">18 min read</div>
+                    </div>
+                </article>
+                
+                <article class="blog-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="blog-header">
+                        <div class="blog-category">Scalable AI</div>
+                        <div class="blog-date">Oct 2024</div>
+                    </div>
+                    <h3 class="blog-title">Mixture of Experts (MoE) - Scaling AI Efficiently</h3>
+                    <p class="blog-description">
+                        How sparse expert models achieve massive scale with efficient computation. Learn about expert routing, load balancing, Switch Transformer, and advanced MoE architectures.
+                    </p>
+                    <div class="blog-footer">
+                        <a href="Mixture-of-Experts-MoE.html" class="read-more-btn">
+                            <span>Read Article</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                        <div class="read-time">20 min read</div>
+                    </div>
+                </article>
+            </div>
+            
+            <div class="view-all-blogs" data-aos="fade-up" data-aos-delay="500">
+                <a href="#" class="btn btn-outline">View All Posts</a>
+            </div>
         </div>
     </section>
     
-<!-- Font Awesome for social icons -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/js/all.min.js" crossorigin="anonymous"></script>
-
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/js/all.min.js" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="particles-config.js"></script>
     <script src="main.js"></script>
     <!-- Contact Me Section -->
-<section id="contact" class="section contact-section">
-    <div class="contact-container">
-        <h2 class="section-title" data-aos="fade-up">Contact Me</h2>
-        <p data-aos="fade-up">
-            Feel free to reach out to me for collaboration, inquiries, or just to say hello!
-        </p>
-        <form class="contact-form" data-aos="fade-up">
-            <input type="text" placeholder="Your Name" required>
-            <input type="email" placeholder="Your Email" required>
-            <textarea placeholder="Your Message" rows="5" required></textarea>
-            <button type="submit" class="btn">Send Message</button>
-        </form>
-        <div class="contact-links" data-aos="fade-up">
-            <a href="virajsawad1021@gmail.com" class="btn btn-outline">Send Me an Email</a>
+    <section id="contact" class="section contact-section">
+        <div class="contact-container">
+            <div class="contact-header" data-aos="fade-up">
+                <h2 class="section-title">Let's Work Together</h2>
+                <p class="contact-subtitle">
+                    I'm always open to discussing new opportunities, interesting projects, or just having a chat about technology!
+                </p>
+            </div>
+            
+            <div class="contact-content">
+                <div class="contact-info" data-aos="fade-right" data-aos-delay="200">
+                    <h3>Get In Touch</h3>
+                    <div class="contact-methods">
+                        <div class="contact-method">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <h4>Email</h4>
+                                <a href="mailto:virajsawad1021@gmail.com">virajsawad1021@gmail.com</a>
+                            </div>
+                        </div>
+                        <div class="contact-method">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <h4>Location</h4>
+                                <p>Nepal</p>
+                            </div>
+                        </div>
+                        <div class="contact-method">
+                            <i class="fas fa-clock"></i>
+                            <div>
+                                <h4>Response Time</h4>
+                                <p>Within 24 hours</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <form class="contact-form" data-aos="fade-left" data-aos-delay="300">
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" name="name" placeholder="John Doe" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" placeholder="john@example.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <input type="text" id="subject" name="subject" placeholder="Project Collaboration" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" rows="5" placeholder="Tell me about your project or just say hello!" required></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">
+                        <span>Send Message</span>
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </form>
+            </div>
         </div>
-    </div>
-</section>
-<!-- Footer Section -->
-<!-- Footer Section -->
-<footer class="footer-section">
-    <div class="footer-container">
-        <p class="footer-text">Connect with me:</p>
-        <div class="social-icons">
-            <a href="https://github.com/VirajSawad1021" target="_blank" class="social-link github" data-aos="zoom-in">
-                <i class="fa-brands fa-github"></i>
-            </a>
-            <a href="https://www.linkedin.com/in/viraj-sawad-92970a33b/" target="_blank" class="social-link linkedin" data-aos="zoom-in">
-                <i class="fa-brands fa-linkedin-in"></i>
-            </a>
-            <a href="https://www.instagram.com/viraj_sawad/" target="_blank" class="social-link instagram" data-aos="zoom-in">
-                <i class="fa-brands fa-instagram"></i>
-            </a>
+    </section>
+    <!-- Footer Section -->
+    <footer class="footer-section">
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-brand" data-aos="fade-up">
+                    <h3>Viraj Sawad</h3>
+                    <p>Computer Engineering Student & Aspiring Developer</p>
+                </div>
+                
+                <div class="footer-links" data-aos="fade-up" data-aos-delay="100">
+                    <div class="footer-column">
+                        <h4>Quick Links</h4>
+                        <ul>
+                            <li><a href="#home">Home</a></li>
+                            <li><a href="#about">About</a></li>
+                            <li><a href="#projects">Projects</a></li>
+                            <li><a href="#blogs">Blog</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h4>Technologies</h4>
+                        <ul>
+                            <li>Python & Machine Learning</li>
+                            <li>Web Development</li>
+                            <li>Data Science</li>
+                            <li>JavaScript & React</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h4>Connect</h4>
+                        <div class="social-links-footer">
+                            <a href="https://github.com/VirajSawad1021" target="_blank" class="social-link github" data-aos="zoom-in" data-aos-delay="200">
+                                <i class="fab fa-github"></i>
+                                <span>GitHub</span>
+                            </a>
+                            <a href="https://www.linkedin.com/in/viraj-sawad-92970a33b/" target="_blank" class="social-link linkedin" data-aos="zoom-in" data-aos-delay="250">
+                                <i class="fab fa-linkedin-in"></i>
+                                <span>LinkedIn</span>
+                            </a>
+                            <a href="https://www.instagram.com/viraj_sawad/" target="_blank" class="social-link instagram" data-aos="zoom-in" data-aos-delay="300">
+                                <i class="fab fa-instagram"></i>
+                                <span>Instagram</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom" data-aos="fade-up" data-aos-delay="400">
+                <div class="footer-divider"></div>
+                <div class="footer-bottom-content">
+                    <p class="footer-credit">© 2025 Viraj Sawad. All rights reserved.</p>
+                    <p class="footer-love">Made with lots of ☕</p>
+                </div>
+            </div>
         </div>
-        <p class="footer-credit">© 2025 Viraj Sawad. All rights reserved.</p>
-    </div>
-</footer>
+    </footer>
 
-
-<!-- Font Awesome for social icons -->
-<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 
 <script>
-    document.querySelector('.show-more').addEventListener('click', function() {
-        const moreContent = document.querySelector('.more-content');
-        if (moreContent.style.display === 'none' || moreContent.style.display === '') {
-            moreContent.style.display = 'block'; // Show the additional content
-            this.textContent = 'Show Less'; // Change button text
-        } else {
-            moreContent.style.display = 'none'; // Hide the additional content
-            this.textContent = 'Show More'; // Change button text back
+    // Form submission handler
+    document.addEventListener('DOMContentLoaded', function() {
+        const contactForm = document.querySelector('.contact-form');
+        if (contactForm) {
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Get form data
+                const formData = new FormData(this);
+                const formObject = {};
+                formData.forEach((value, key) => {
+                    formObject[key] = value;
+                });
+                
+                // Simple validation
+                if (!formObject.name || !formObject.email || !formObject.message) {
+                    alert('Please fill in all required fields.');
+                    return;
+                }
+                
+                // Simulate form submission
+                const submitBtn = this.querySelector('.submit-btn');
+                const originalText = submitBtn.innerHTML;
+                submitBtn.innerHTML = '<span>Sending...</span><i class="fas fa-spinner fa-spin"></i>';
+                submitBtn.disabled = true;
+                
+                // Simulate API call
+                setTimeout(() => {
+                    alert('Thank you for your message! I will get back to you soon.');
+                    this.reset();
+                    submitBtn.innerHTML = originalText;
+                    submitBtn.disabled = false;
+                }, 2000);
+            });
         }
     });
 </script>
