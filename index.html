@@ -189,7 +189,7 @@
                             <i class="fas fa-envelope"></i>
                             <div>
                                 <h4>Email</h4>
-                                <a href="mailto:virajsawad1021@gmail.com">virajsawad1021@gmail.com</a>
+                                <a href="mailto:virajsawad07@gmail.com">virajsawad07@gmail.com</a>
                             </div>
                         </div>
                         <div class="contact-method">
@@ -209,7 +209,11 @@
                     </div>
                 </div>
                 
-                <form class="contact-form" data-aos="fade-left" data-aos-delay="300">
+                <form class="contact-form" data-aos="fade-left" data-aos-delay="300" action="https://api.web3forms.com/submit" method="POST">
+                    <input type="hidden" name="access_key" value="9064fa63-7102-4cc0-9bd5-cb9686c6e47b">
+                    <input type="hidden" name="subject" value="New Contact from Portfolio Website">
+                    <input type="hidden" name="from_name" value="Portfolio Contact Form">
+                    <input type="hidden" name="redirect" value="https://web3forms.com/success">
                     <div class="form-group">
                         <label for="name">Full Name</label>
                         <input type="text" id="name" name="name" placeholder="John Doe" required>
@@ -296,7 +300,7 @@
 
 
 <script>
-    // Form submission handler
+    // Form submission handler with Web3Forms
     document.addEventListener('DOMContentLoaded', function() {
         const contactForm = document.querySelector('.contact-form');
         if (contactForm) {
@@ -305,30 +309,45 @@
                 
                 // Get form data
                 const formData = new FormData(this);
-                const formObject = {};
-                formData.forEach((value, key) => {
-                    formObject[key] = value;
-                });
                 
                 // Simple validation
-                if (!formObject.name || !formObject.email || !formObject.message) {
+                const name = formData.get('name');
+                const email = formData.get('email');
+                const message = formData.get('message');
+                
+                if (!name || !email || !message) {
                     alert('Please fill in all required fields.');
                     return;
                 }
                 
-                // Simulate form submission
+                // Show loading state
                 const submitBtn = this.querySelector('.submit-btn');
                 const originalText = submitBtn.innerHTML;
                 submitBtn.innerHTML = '<span>Sending...</span><i class="fas fa-spinner fa-spin"></i>';
                 submitBtn.disabled = true;
                 
-                // Simulate API call
-                setTimeout(() => {
-                    alert('Thank you for your message! I will get back to you soon.');
-                    this.reset();
+                // Send form data to Web3Forms
+                fetch('https://api.web3forms.com/submit', {
+                    method: 'POST',
+                    body: formData
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        alert('Thank you for your message! I will get back to you soon.');
+                        this.reset();
+                    } else {
+                        throw new Error(data.message || 'Form submission failed');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('Oops! Something went wrong. Please try again or email me directly at virajsawad07@gmail.com');
+                })
+                .finally(() => {
                     submitBtn.innerHTML = originalText;
                     submitBtn.disabled = false;
-                }, 2000);
+                });
             });
         }
     });
