@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 :root {
   --color-surface: #fcf9f8;
   --color-on-surface: #1c1b1b;
