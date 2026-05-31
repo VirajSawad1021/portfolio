@@ -1,0 +1,175 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+// Fetch all posts, sort by date (newest first)
+const allPosts = await getCollection('posts');
+const sortedPosts = allPosts.sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime());
+
+// Get unique tags
+const uniqueTags = Array.from(new Set(allPosts.flatMap(post => post.data.tags)));
+const allTags = ['All', ...uniqueTags];
+---
+
+<BaseLayout activeTab="posts">
+  <!-- Main Content Canvas -->
+  <main class="max-w-[680px] w-full mx-auto px-6 mb-32 flex-1 mt-16">
+    <!-- Intro Section -->
+    <header class="mb-12">
+      <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight text-on-surface mb-6">
+        Hi, I'm Viraj Sawad.
+      </h1>
+      <div class="space-y-6">
+        <p class="text-[18px] font-serif leading-relaxed text-on-surface">
+          I am a third-year Computer Engineering student at Kantipur Engineering College, Tribhuvan University, Kathmandu, Nepal. I work at the intersection of LLMs, multi-agent systems, and vision-language models. I'm part of the Fusemachines AI Fellowship (AIF 2026) and the Leapfrog Student Partnership Program (LSPP 5th cohort).
+        </p>
+        <p class="text-[18px] font-serif leading-relaxed text-on-surface italic border-l-2 border-primary pl-4 my-6">
+          Somewhere beneath the engineering, I'm genuinely curious about something harder to pin down: whether language models can have something like thought. Not agents calling tools, not chain-of-thought prompting, but actual internal reasoning. I don't have answers yet. That's kind of the point.
+        </p>
+      </div>
+
+      <p class="text-[16px] text-on-surface-variant leading-relaxed mt-10 mb-4">
+        Outside of my academic coursework, I also:
+      </p>
+      <ul class="list-disc pl-5 space-y-2.5 text-[15px] text-on-surface-variant mb-8">
+        <li>
+          <a href="#writing" class="text-primary font-medium hover:underline">Write</a> deep-dives on LLMs, multi-agent systems, and vision-language models.
+        </li>
+        <li>
+          <strong class="text-on-surface font-medium">Run</strong>, read essays, journal, cook, and explore new music.
+        </li>
+        <li>
+          <strong class="text-on-surface font-medium">Research</strong> whether LLMs can ever genuinely think, not just predict.
+        </li>
+      </ul>
+    </header>
+
+    <!-- Reach Out Section (Basab Jha-Style) -->
+    <section class="mb-20">
+      <div class="flex flex-wrap gap-6 font-sans text-sm">
+        <a href="https://github.com/VirajSawad1021" target="_blank" class="text-on-surface font-semibold underline underline-offset-4 hover:text-primary transition-colors duration-200">GitHub</a>
+        <a href="https://www.linkedin.com/in/viraj-sawad-92970a33b/" target="_blank" class="text-on-surface font-semibold underline underline-offset-4 hover:text-primary transition-colors duration-200">LinkedIn</a>
+        <a href="https://www.instagram.com/viraj_sawad/" target="_blank" class="text-on-surface font-semibold underline underline-offset-4 hover:text-primary transition-colors duration-200">Instagram</a>
+        <a href="mailto:virajsawad07@gmail.com" class="text-on-surface font-semibold underline underline-offset-4 hover:text-primary transition-colors duration-200">Email</a>
+      </div>
+    </section>
+
+    <!-- Writing Section -->
+    <section id="writing" class="scroll-mt-24">
+      <h2 class="text-xs font-bold tracking-[0.2em] text-on-surface-variant uppercase mb-8 border-b border-outline-variant/10 pb-2">Latest Writing</h2>
+      
+      <!-- Tag Filter -->
+      <div class="flex flex-wrap gap-2.5 mb-12 items-center justify-start" id="tag-filter-container">
+        {allTags.map((tag, idx) => (
+          <button 
+            data-tag={tag}
+            class={`px-4 py-1.5 rounded-full text-[10px] font-bold tracking-widest uppercase transition-all duration-200 cursor-pointer ${
+              idx === 0 
+                ? 'bg-primary text-[#ffffff]' 
+                : 'bg-secondary-container/20 text-on-secondary-container hover:bg-secondary-container/40'
+            }`}
+          >
+            {tag}
+          </button>
+        ))}
+      </div>
+
+      <!-- Post List -->
+      <div class="space-y-16" id="posts-container">
+        {sortedPosts.length === 0 ? (
+          <p class="text-sm text-on-surface-variant italic">No posts written yet.</p>
+        ) : (
+          sortedPosts.map(post => (
+            <article 
+              class="group cursor-pointer transition-all duration-300" 
+              data-post-tags={post.data.tags.join(',')}
+            >
+              <div class="flex items-center space-x-4 mb-3">
+                <span class="text-[10px] font-mono tracking-wider text-outline uppercase">
+                  {new Date(post.data.date).toLocaleDateString('en-US', {
+                    day: '2-digit',
+                    month: 'short',
+                    year: 'numeric'
+                  })}
+                </span>
+                {post.data.tags.map(tag => (
+                  <span class="px-2 py-0.5 bg-secondary-container/20 text-on-secondary-container text-[10px] font-bold rounded-full uppercase tracking-tighter">
+                    {tag}
+                  </span>
+                ))}
+                <span class="text-[10px] font-medium text-outline">{post.data.readTime}</span>
+              </div>
+              <a href={`/posts/${post.slug}`} class="block group-hover:text-primary transition-colors duration-200">
+                <h3 class="text-2xl font-bold tracking-tight text-on-surface group-hover:text-primary transition-colors duration-300 mb-2">
+                  {post.data.title}
+                </h3>
+              </a>
+              {post.data.description && (
+                <p class="text-on-surface-variant text-sm leading-relaxed">
+                  {post.data.description}
+                </p>
+              )}
+            </article>
+          ))
+        )}
+      </div>
+    </section>
+
+    <!-- Lab Notes Subscription -->
+    <div class="mt-32 pt-16 border-t border-outline-variant/10">
+      <div class="bg-surface-container-low p-10 rounded-lg text-center">
+        <h3 class="text-lg font-bold mb-3 tracking-tight text-on-surface">The Lab Notes</h3>
+        <p class="text-xs text-on-surface-variant mb-6 leading-relaxed">
+          A periodic, focused newsletter on robust AI architecture and software systems. Straightforward engineering with zero fluff.
+        </p>
+        <form class="flex flex-col sm:flex-row gap-2 max-w-md mx-auto" action="https://api.web3forms.com/submit" method="POST">
+          <input type="hidden" name="access_key" value="9064fa63-7102-4cc0-9bd5-cb9686c6e47b">
+          <input type="hidden" name="subject" value="New Subscriber to Lab Notes">
+          <input 
+            class="flex-1 bg-surface-container-lowest border border-[#d7c3b1] text-xs px-4 py-3 rounded outline-none focus:border-primary transition-colors" 
+            placeholder="email@address.com" 
+            type="email" 
+            name="email"
+            required
+          />
+          <button type="submit" class="bg-primary text-[#ffffff] px-6 py-3 font-bold text-xs hover:opacity-90 transition-opacity rounded cursor-pointer">
+            Subscribe
+          </button>
+        </form>
+      </div>
+    </div>
+  </main>
+</BaseLayout>
+
+<script>
+  // Instant vanilla client-side filtering matching Stitch spec
+  const filterButtons = document.querySelectorAll('#tag-filter-container button');
+  const posts = document.querySelectorAll('#posts-container article');
+
+  filterButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      // Toggle active states
+      filterButtons.forEach(b => {
+        b.classList.remove('bg-primary', 'text-[#ffffff]');
+        b.classList.add('bg-secondary-container/20', 'text-on-secondary-container');
+      });
+      btn.classList.add('bg-primary', 'text-[#ffffff]');
+      btn.classList.remove('bg-secondary-container/20', 'text-on-secondary-container');
+
+      const selectedTag = btn.getAttribute('data-tag');
+
+      posts.forEach((post) => {
+        const postElement = post as HTMLElement;
+        const postTagsAttr = postElement.getAttribute('data-post-tags');
+        const postTags = postTagsAttr ? postTagsAttr.split(',') : [];
+        if (selectedTag === 'All' || postTags.includes(selectedTag)) {
+          postElement.style.display = 'block';
+          postElement.style.opacity = '1';
+        } else {
+          postElement.style.display = 'none';
+          postElement.style.opacity = '0';
+        }
+      });
+    });
+  });
+</script>

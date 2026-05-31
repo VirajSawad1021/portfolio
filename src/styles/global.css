@@ -1,0 +1,303 @@
+:root {
+  --color-surface: #fcf9f8;
+  --color-on-surface: #1c1b1b;
+  --color-on-surface-variant: #524436;
+  --color-primary: #855000;
+  --color-primary-container: #a76500;
+  --color-secondary-container: #feb56b;
+  --color-on-secondary-container: #774400;
+  --color-outline-variant: #d7c3b1;
+  --color-outline: #857464;
+  --color-surface-container-low: #f6f3f2;
+  --color-surface-container-lowest: #ffffff;
+}
+
+html.dark {
+  --color-surface: #151413;
+  --color-on-surface: #e8e4e1;
+  --color-on-surface-variant: #bfaea0;
+  --color-primary: #e59324;
+  --color-primary-container: #feb56b;
+  --color-secondary-container: #33261a;
+  --color-on-secondary-container: #ffc993;
+  --color-outline-variant: #3e3833;
+  --color-outline: #8c7e73;
+  --color-surface-container-low: #1d1b1a;
+  --color-surface-container-lowest: #100f0e;
+}
+
+body {
+  background-color: var(--color-surface);
+  color: var(--color-on-surface);
+  font-family: 'Inter', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+}
+
+.editorial-spacing {
+  line-height: 1.8;
+}
+
+.prose-custom {
+  line-height: 1.8;
+  font-size: 1.05rem;
+  color: var(--color-on-surface);
+  letter-spacing: -0.01em;
+  text-rendering: optimizeLegibility;
+}
+
+.prose-custom p {
+  margin-bottom: 1.15rem;
+  margin-top: 0;
+}
+
+.prose-custom strong, .prose-custom b {
+  font-weight: 600;
+  color: var(--color-on-surface);
+}
+
+.prose-custom h2 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--color-on-surface);
+  margin-top: 1.75rem;
+  margin-bottom: 0.75rem;
+  letter-spacing: -0.02em;
+}
+
+.prose-custom h3 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--color-on-surface);
+  margin-top: 1.35rem;
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.015em;
+}
+
+/* Compacted whitespace divider margin to prevent massive additive gaps */
+.prose-custom hr {
+  border: none;
+  margin: 1.5rem 0;
+}
+
+.prose-custom ul {
+  list-style-type: disc;
+  padding-left: 1.5rem;
+  margin-bottom: 1.15rem;
+  margin-top: -0.25rem;
+}
+
+.prose-custom ol {
+  list-style-type: decimal;
+  padding-left: 1.5rem;
+  margin-bottom: 1.15rem;
+  margin-top: -0.25rem;
+}
+
+.prose-custom li {
+  margin-bottom: 0.5rem;
+  line-height: 1.7;
+}
+
+.prose-custom blockquote {
+  border-left: 3px solid var(--color-primary);
+  padding-left: 1.25rem;
+  font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+  font-style: italic;
+  color: var(--color-on-surface);
+  margin: 2rem 0;
+  font-size: 1.05rem;
+  line-height: 1.75;
+}
+
+.prose-custom pre {
+  background-color: var(--color-surface-container-low);
+  padding: 1rem;
+  border-radius: 6px;
+  overflow-x: auto;
+  margin-bottom: 1.5rem;
+  border: 1px solid var(--color-outline-variant);
+}
+
+.prose-custom code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.9em;
+  background-color: var(--color-surface-container-low);
+  color: var(--color-primary);
+  padding: 0.15rem 0.3rem;
+  border-radius: 4px;
+}
+
+.prose-custom pre code {
+  background-color: transparent;
+  color: inherit;
+  padding: 0;
+  border-radius: 0;
+}
+
+/* Callout Box (.personal) */
+.prose-custom .personal {
+  background-color: var(--color-surface-container-low);
+  border-left: 3px solid var(--color-primary);
+  padding: 1.25rem;
+  margin: 2rem 0;
+  font-size: 0.95rem;
+  border-radius: 0 6px 6px 0;
+}
+.prose-custom .personal strong {
+  color: var(--color-primary);
+  font-weight: 600;
+}
+
+/* Equation Box (.eq) */
+.prose-custom .eq {
+  background-color: var(--color-surface-container-low);
+  border-radius: 6px;
+  padding: 1rem 1.25rem;
+  margin: 1.5rem 0;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.95rem;
+  overflow-x: auto;
+  color: var(--color-on-surface);
+  border: 1px solid var(--color-outline-variant);
+}
+
+/* Tables inside Prose */
+.prose-custom table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 2.5rem 0;
+  font-size: 0.95rem;
+}
+.prose-custom th {
+  font-weight: 600;
+  text-align: left;
+  padding: 0.75rem 1rem;
+  border-bottom: 2px solid var(--color-outline);
+  color: var(--color-on-surface);
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+}
+.prose-custom td {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid var(--color-outline-variant);
+  vertical-align: top;
+}
+.prose-custom tr:last-child td {
+  border-bottom: none;
+}
+
+/* Inline SVGs for Technical Diagrams */
+.prose-custom svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  background-color: var(--color-surface-container-low);
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin: 2.5rem auto 0.75rem;
+  border: 1px solid var(--color-outline-variant);
+}
+.prose-custom .fig-cap {
+  font-size: 0.85rem;
+  color: rgba(28, 27, 27, 0.6);
+  text-align: center;
+  margin-bottom: 2.5rem;
+  line-height: 1.5;
+  font-style: italic;
+}
+
+/* SVG Variable Color Overrides to Match Warm Intellectual Theme */
+.prose-custom svg {
+  --color-border-secondary: rgba(28, 27, 27, 0.15);
+  --color-border-success: var(--color-primary);
+  --color-border-danger: var(--color-primary);
+  --color-text-secondary: var(--color-on-surface-variant);
+  --color-text-success: var(--color-primary);
+  --color-text-danger: var(--color-primary);
+  --color-text-tertiary: var(--color-outline);
+  --color-background-secondary: var(--color-surface-container-low);
+  --color-background-info: rgba(186, 117, 23, 0.08);
+  --color-background-warning: rgba(133, 80, 0, 0.08);
+}
+
+html.dark .prose-custom svg {
+  --color-border-secondary: rgba(232, 228, 225, 0.15);
+  --color-border-success: #e59324;
+  --color-border-danger: #ffab35;
+  --color-text-secondary: rgba(232, 228, 225, 0.6);
+  --color-text-success: #e59324;
+  --color-text-danger: #ffab35;
+  --color-text-tertiary: rgba(232, 228, 225, 0.4);
+  --color-background-secondary: #3e3833;
+  --color-background-info: rgba(229, 147, 36, 0.08);
+  --color-background-warning: rgba(255, 171, 53, 0.08);
+}
+
+.prose-custom svg rect {
+  fill: var(--color-surface-container-lowest);
+  stroke: var(--color-outline-variant);
+  stroke-width: 1;
+}
+.prose-custom svg text {
+  font-family: 'Inter', sans-serif !important;
+  fill: var(--color-on-surface) !important;
+}
+.prose-custom svg .th {
+  font-weight: 700;
+  font-size: 13px;
+  fill: var(--color-on-surface) !important;
+}
+.prose-custom svg .ts {
+  font-size: 11px;
+  fill: rgba(28, 27, 27, 0.6) !important;
+}
+
+/* Custom Modal Color Overrides for SVG elements */
+.prose-custom svg .c-teal rect {
+  stroke: #BA7517;
+  fill: rgba(186, 117, 23, 0.04);
+  stroke-width: 1.5;
+}
+.prose-custom svg .c-teal text {
+  fill: #855000 !important;
+}
+.prose-custom svg .c-purple rect {
+  stroke: #855000;
+  fill: rgba(133, 80, 0, 0.04);
+  stroke-width: 1.5;
+}
+.prose-custom svg .c-purple text {
+  fill: #855000 !important;
+}
+.prose-custom svg .c-amber rect {
+  stroke: #BA7517;
+  fill: rgba(186, 117, 23, 0.08);
+  stroke-width: 1.5;
+}
+.prose-custom svg .c-amber text {
+  fill: #855000 !important;
+}
+.prose-custom svg .c-gray rect {
+  stroke: rgba(28, 27, 27, 0.2);
+  fill: #ffffff;
+  stroke-width: 1;
+}
+.prose-custom svg .c-coral rect {
+  stroke: #855000;
+  fill: rgba(133, 80, 0, 0.08);
+  stroke-width: 1.5;
+}
+.prose-custom svg .c-coral text {
+  fill: #855000 !important;
+}
+
+.archive-row:hover .archive-title {
+  color: #855000;
+}
+
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+  vertical-align: middle;
+}

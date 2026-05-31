@@ -1,0 +1,136 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+  activeTab?: 'posts' | 'archive' | 'about';
+}
+
+const { 
+  title = "Viraj Sawad | I build AI systems and write about what breaks.", 
+  description = "Portfolio and technical blog of Viraj Sawad, a Computer Engineering student at Kantipur Engineering College focused on AI, ML, and robust systems design.",
+  activeTab = "posts"
+} = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    
+    <!-- Google Fonts & Material Symbols -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+    
+    <!-- MathJax for rendering LaTeX equations -->
+    <script is:inline>
+      window.MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          displayMath: [['$$', '$$'], ['\\[', '\\]']],
+          processEscapes: true
+        },
+        options: {
+          ignoreHtmlClass: 'tex2jax_ignore',
+          processHtmlClass: 'tex2jax_process'
+        }
+      };
+    </script>
+    <script is:inline id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <!-- Blocking Theme Script to Prevent FOUC (Flash of Unstyled Content) -->
+    <script is:inline>
+      (function() {
+        const storedTheme = localStorage.getItem('theme');
+        if (storedTheme === 'dark' || (!storedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+          document.documentElement.classList.add('dark');
+        } else {
+          document.documentElement.classList.remove('dark');
+        }
+      })();
+    </script>
+  </head>
+  <body class="selection:bg-secondary-container/30 selection:text-on-secondary-container flex flex-col min-h-screen bg-surface">
+    <!-- Top Navigation -->
+    <nav class="w-full top-0 sticky bg-surface/90 backdrop-blur-md z-50">
+      <div class="flex justify-between items-center max-w-[680px] mx-auto px-6 py-10">
+        <a class="text-xs font-semibold uppercase tracking-[0.25em] text-on-surface hover:text-primary transition-colors duration-200" href="/">VIRAJ SAWAD</a>
+        <div class="flex gap-6 font-sans font-medium antialiased text-sm items-center">
+          <a class={`cursor-pointer transition-all duration-200 pb-1 ${activeTab === 'posts' ? 'text-primary border-b-2 border-primary font-semibold' : 'text-on-surface opacity-70 hover:opacity-105'}`} href="/">posts</a>
+          <a class={`cursor-pointer transition-all duration-200 pb-1 ${activeTab === 'archive' ? 'text-primary border-b-2 border-primary font-semibold' : 'text-on-surface opacity-70 hover:opacity-105'}`} href="/archive">archive</a>
+          <a class={`cursor-pointer transition-all duration-200 pb-1 ${activeTab === 'about' ? 'text-primary border-b-2 border-primary font-semibold' : 'text-on-surface opacity-70 hover:opacity-105'}`} href="/about">about</a>
+          
+          <!-- Dark Mode Toggle Button -->
+          <button 
+            id="theme-toggle" 
+            class="pb-1 text-on-surface opacity-70 hover:opacity-100 hover:text-primary transition-all duration-200 cursor-pointer flex items-center justify-center" 
+            aria-label="Toggle dark mode"
+          >
+            <span class="material-symbols-outlined select-none text-[20px]" id="theme-toggle-icon">
+              dark_mode
+            </span>
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Main Content Slot -->
+    <slot />
+
+    <!-- Footer -->
+    <footer class="w-full bg-surface border-t border-surface-container-low mt-auto">
+      <div class="max-w-[680px] mx-auto px-6 py-16 flex flex-col md:flex-row justify-between items-center gap-4 text-xs font-sans uppercase tracking-widest">
+        <div class="text-on-surface font-bold opacity-60">© 2026 Viraj Sawad.</div>
+        <div class="flex gap-6">
+          <a class="text-on-surface opacity-50 hover:opacity-100 transition-opacity underline-offset-4 hover:underline" href="https://github.com/VirajSawad1021" target="_blank">GitHub</a>
+          <a class="text-on-surface opacity-50 hover:opacity-100 transition-opacity underline-offset-4 hover:underline" href="https://www.linkedin.com/in/viraj-sawad-92970a33b/" target="_blank">LinkedIn</a>
+          <a class="text-on-surface opacity-50 hover:opacity-100 transition-opacity underline-offset-4 hover:underline" href="mailto:virajsawad07@gmail.com">Email</a>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Theme Switcher Logic Script -->
+    <script>
+      const themeToggle = document.getElementById('theme-toggle');
+      const themeToggleIcon = document.getElementById('theme-toggle-icon');
+
+      function updateIcon() {
+        if (document.documentElement.classList.contains('dark')) {
+          if (themeToggleIcon) themeToggleIcon.textContent = 'light_mode';
+        } else {
+          if (themeToggleIcon) themeToggleIcon.textContent = 'dark_mode';
+        }
+      }
+
+      // Initial icon setup
+      updateIcon();
+
+      if (themeToggle) {
+        themeToggle.addEventListener('click', () => {
+          const isDark = document.documentElement.classList.toggle('dark');
+          localStorage.setItem('theme', isDark ? 'dark' : 'light');
+          updateIcon();
+        });
+      }
+
+      // Support dynamic updates when the system preferences change
+      window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+        if (!localStorage.getItem('theme')) {
+          if (e.matches) {
+            document.documentElement.classList.add('dark');
+          } else {
+            document.documentElement.classList.remove('dark');
+          }
+          updateIcon();
+        }
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,60 @@
+---
+import BaseLayout from './BaseLayout.astro';
+
+interface Props {
+  frontmatter: {
+    title: string;
+    description?: string;
+    date: string;
+    tags: string[];
+    readTime: string;
+  };
+}
+
+const { frontmatter } = Astro.props;
+---
+
+<BaseLayout title={`${frontmatter.title} | Viraj Sawad`} description={frontmatter.description} activeTab="posts">
+  <main class="max-w-[680px] w-full mx-auto px-6 mb-32 mt-12 flex-1">
+    <!-- Post Header -->
+    <header class="mb-16">
+      <div class="flex items-center gap-4 mb-4 text-[10px] font-bold uppercase tracking-widest text-outline">
+        <time datetime={frontmatter.date}>
+          {new Date(frontmatter.date).toLocaleDateString('en-US', {
+            year: 'numeric',
+            month: 'short',
+            day: 'numeric'
+          })}
+        </time>
+        <span class="px-2 py-0.5 bg-secondary-container/20 text-on-secondary-container rounded-full tracking-tighter text-[10px] uppercase">
+          {frontmatter.tags[0]}
+        </span>
+        <span>{frontmatter.readTime}</span>
+      </div>
+      <h1 class="text-[2.25rem] leading-tight font-extrabold tracking-tight text-on-surface mb-4">
+        {frontmatter.title}
+      </h1>
+      {frontmatter.description && (
+        <p class="text-on-surface-variant text-base leading-relaxed font-medium mt-4">
+          {frontmatter.description}
+        </p>
+      )}
+    </header>
+
+    <!-- Post Content Slot -->
+    <article class="prose-custom text-on-surface font-sans">
+      <slot />
+    </article>
+
+    <!-- Elegant Closure Marker & Redirect Link -->
+    <div class="mt-16 pt-8 border-t border-outline-variant/10 flex flex-col items-center">
+      <div class="text-[10px] uppercase tracking-[0.3em] font-bold text-outline mb-6">End of Essay</div>
+      <a 
+        href="/" 
+        class="text-xs font-bold tracking-widest uppercase text-on-surface opacity-60 hover:opacity-100 hover:text-primary transition-all duration-200 cursor-pointer"
+      >
+        ← Back to all writing
+      </a>
+    </div>
+  </main>
+</BaseLayout>

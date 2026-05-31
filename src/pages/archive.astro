@@ -1,0 +1,73 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const allPosts = await getCollection('posts');
+
+// Sort posts by date descending
+const sortedPosts = allPosts.sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime());
+
+// Group posts by year
+const postsByYear: Record<string, typeof sortedPosts> = {};
+sortedPosts.forEach(post => {
+  const year = new Date(post.data.date).getFullYear().toString();
+  if (!postsByYear[year]) {
+    postsByYear[year] = [];
+  }
+  postsByYear[year].push(post);
+});
+
+// Sort years descending
+const years = Object.keys(postsByYear).sort((a, b) => parseInt(b) - parseInt(a));
+---
+
+<BaseLayout activeTab="archive" title="Archive | Viraj Sawad">
+  <main class="max-w-[680px] w-full mx-auto px-6 mb-32 flex-1 mt-12">
+    <header class="mb-20">
+      <h1 class="text-[2.75rem] leading-tight font-medium tracking-tight text-on-surface mb-4">Archive</h1>
+      <p class="text-on-surface-variant leading-relaxed max-w-[540px] text-sm">
+        A chronological collection of thoughts, technical explorations, and stories. From distributed systems to the philosophy of interface design.
+      </p>
+    </header>
+
+    <!-- Year Sections -->
+    {years.length === 0 ? (
+      <p class="text-sm text-on-surface-variant italic">No posts compiled in the archive yet.</p>
+    ) : (
+      years.map(year => (
+        <section class="mb-16">
+          <h2 class="text-xs font-bold tracking-[0.2em] text-on-surface-variant uppercase mb-8 border-b border-outline-variant/10 pb-2">
+            {year}
+          </h2>
+          <div class="flex flex-col gap-0">
+            {postsByYear[year].map(post => (
+              <a 
+                href={`/posts/${post.slug}`} 
+                class="archive-row group flex items-baseline justify-between py-4 cursor-pointer transition-all duration-200 hover:bg-surface-container-low px-2 -mx-2 rounded-sm"
+              >
+                <div class="flex items-baseline gap-4 overflow-hidden">
+                  <span class="text-xs font-sans tabular-nums text-on-surface-variant opacity-60 flex-shrink-0">
+                    {new Date(post.data.date).toLocaleDateString('en-US', {
+                      month: 'short',
+                      day: '2-digit'
+                    })}
+                  </span>
+                  <span class="archive-title text-[1rem] font-medium text-on-surface transition-colors duration-200 truncate">
+                    {post.data.title}
+                  </span>
+                </div>
+                <div class="flex items-center gap-3 flex-shrink-0 ml-4">
+                  {post.data.tags.slice(0, 1).map(tag => (
+                    <span class="px-2 py-0.5 bg-secondary-container/20 text-on-secondary-container text-[10px] font-bold rounded-full uppercase tracking-tighter">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </a>
+            ))}
+          </div>
+        </section>
+      ))
+    )}
+  </main>
+</BaseLayout>
